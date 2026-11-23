@@ -1,37 +1,62 @@
-import React from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import ScrollToTop from './components/ScrollToTop';
-
 import Home from './pages/Home';
-import About from './pages/About';
 import Services from './pages/Services';
+import ServiceDetail from './pages/ServiceDetail';
+import FeatureDetail from './pages/FeatureDetail';
 import Products from './pages/Products';
+import ProductSubcategories from './pages/ProductSubcategories';
+import ProductList from './pages/ProductList';
+import ProductDetail from './pages/ProductDetail';
 import Blogs from './pages/Blogs';
+import BlogPost from './pages/BlogPost';
+import AboutUs from './pages/AboutUs';
 import FAQ from './pages/FAQ';
 import Contact from './pages/Contact';
+import BloggerLogin from './pages/BloggerLogin';
+import BloggerDashboard from './pages/BloggerDashboard';
+import ProtectedRoute from './components/ProtectedRoute';
+import AnimatedBackground from './components/AnimatedBackground';
+
+const ScrollToTop = () => {
+  const { pathname, hash } = useLocation();
+  useEffect(() => {
+    if (!hash) {
+      window.scrollTo(0, 0);
+    }
+  }, [pathname, hash]);
+  return null;
+};
 
 function App() {
   return (
-    <>
+    <Router>
       <ScrollToTop />
+      <AnimatedBackground />
       <Header />
-      <main style={{ flex: 1 }}>
+      <div className="bg-primary-theme" style={{ minHeight: '100vh', position: 'relative', zIndex: 10 }}>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/about-us" element={<AboutUs />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/service/:id" element={<ServiceDetail />} />
+          <Route path="/feature/:id" element={<FeatureDetail />} />
           <Route path="/products" element={<Products />} />
+          <Route path="/products/:categoryId" element={<ProductSubcategories />} />
+          <Route path="/products/:categoryId/:subcategoryId" element={<ProductList />} />
+          <Route path="/product/:id" element={<ProductDetail />} />
           <Route path="/blogs" element={<Blogs />} />
+          <Route path="/blog/:id" element={<BlogPost />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/contact" element={<Contact />} />
-          {/* Catch-all route to Home */}
-          <Route path="*" element={<Navigate to="/" replace />} />
+          <Route path="/blogger-login" element={<BloggerLogin />} />
+          <Route path="/blogger-dashboard" element={<ProtectedRoute><BloggerDashboard /></ProtectedRoute>} />
         </Routes>
-      </main>
+      </div>
       <Footer />
-    </>
+    </Router>
   );
 }
 
