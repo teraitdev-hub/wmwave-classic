@@ -560,3 +560,13 @@ textarea.form-control {
     text-align: center;
   }
 }
+
+@media (max-width: 768px) {
+  .header-phone-btn {
+    display: none !important;
+  }
+  .mobile-only {
+    display: flex !important;
+  }
+}
+

@@ -22,6 +22,7 @@ import {
 import { getAllProducts } from '../data/products';
 import ProductCard from '../components/ProductCard';
 import ProductModal from '../components/ProductModal';
+import HomeBannerSlider from '../components/HomeBannerSlider';
 
 const Home = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -81,6 +82,9 @@ const Home = () => {
 
   return (
     <div>
+      {/* Official WMWave Brand & Solutions Banner Slider (Zero Animations) */}
+      <HomeBannerSlider />
+
       {/* Hero Section */}
       <section style={{ backgroundColor: '#ffffff', padding: '60px 0 50px 0', borderBottom: '1px solid #e2e8f0' }}>
         <div className="container">
