@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin, ShieldCheck, CheckCircle2 } from 'lucide-react';
+import { Phone, Mail, MapPin } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -10,26 +10,20 @@ const Footer = () => {
           <div className="footer-grid">
             {/* Col 1: About */}
             <div className="footer-col">
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
+              <div style={{ marginBottom: '18px' }}>
                 <img 
                   src="/assets/images/logo.png" 
                   alt="WMWave" 
-                  style={{ height: '36px', filter: 'brightness(0) invert(1)' }}
-                  onError={(e) => { e.target.style.display = 'none'; }}
+                  style={{ height: '42px', width: 'auto', objectFit: 'contain', display: 'block' }}
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src = '/assets/images/logo_horizontal.png';
+                  }}
                 />
-                <span style={{ fontSize: '1.4rem', fontWeight: '800', color: '#ffffff' }}>WMWave</span>
               </div>
-              <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '20px', lineHeight: '1.7' }}>
+              <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '0', lineHeight: '1.7' }}>
                 WMWave is a premier provider of enterprise biometric attendance systems, facial recognition terminals, access control, and automated barrier solutions. Engineered for seamless cloud synchronization and corporate security.
               </p>
-              <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
-                <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '0.8125rem', color: '#38bdf8' }}>
-                  <ShieldCheck size={16} /> ISO 9001 Certified
-                </span>
-                <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '0.8125rem', color: '#38bdf8' }}>
-                  <CheckCircle2 size={16} /> CE & FCC Compliant
-                </span>
-              </div>
             </div>
 
             {/* Col 2: Solutions */}
