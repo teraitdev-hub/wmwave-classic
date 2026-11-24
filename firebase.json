@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "wmwave-classic",
     "public": "dist",
     "ignore": [
       "firebase.json",
