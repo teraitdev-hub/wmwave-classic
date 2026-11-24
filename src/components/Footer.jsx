@@ -91,13 +91,13 @@ const Footer = () => {
       </div>
 
       <div className="footer-bottom">
-        <div className="container">
+        <div className="container" style={{ paddingRight: '85px' }}>
           <p style={{ margin: 0, color: '#64748b' }}>
             &copy; {new Date().getFullYear()} WMWave Technologies Pvt Ltd. All rights reserved.
           </p>
           <div className="footer-bottom-links">
             <Link to="/about">About Us</Link>
-            <Link to="/products">All 46 Products</Link>
+            <Link to="/products">All Products</Link>
             <Link to="/faq">FAQ</Link>
             <Link to="/contact">Contact</Link>
           </div>

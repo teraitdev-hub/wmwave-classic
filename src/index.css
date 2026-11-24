@@ -558,6 +558,8 @@ textarea.form-control {
     flex-direction: column;
     gap: 12px;
     text-align: center;
+    padding-right: 15px !important;
+    padding-bottom: 75px !important;
   }
 }
 
