@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronRight } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -47,24 +47,9 @@ const Header = () => {
               {link.name}
             </Link>
           ))}
-          {mobileMenuOpen && (
-            <div style={{ marginTop: '16px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-              <Link 
-                to="/contact" 
-                className="btn btn-primary"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Request Quote
-              </Link>
-            </div>
-          )}
         </nav>
 
         <div className="header-cta">
-          <Link to="/contact" className="btn btn-primary btn-sm">
-            <span>Request Quote</span>
-            <ChevronRight size={14} />
-          </Link>
           <button 
             className="mobile-menu-btn" 
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
