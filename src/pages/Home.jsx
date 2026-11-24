@@ -133,20 +133,20 @@ const Home = () => {
                 }}
               >
                 <img 
-                  src="/assets/images/about_workforce_new.jpg" 
-                  alt="WMWave Enterprise Workforce Solutions" 
+                  src="/assets/images/hero_essl_attendance.jpg" 
+                  alt="eSSL Biometric Attendance Terminal in Enterprise Facility" 
                   style={{ width: '100%', height: 'auto', display: 'block' }}
-                  onError={(e) => { e.target.src = '/assets/images/hero_office.png'; }}
+                  onError={(e) => { e.target.src = '/assets/images/about_workforce_new.jpg'; }}
                 />
                 <div style={{ padding: '18px 22px', backgroundColor: '#ffffff', borderTop: '1px solid #e2e8f0' }}>
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                     <span style={{ fontSize: '0.875rem', fontWeight: '700', color: '#0f2b48' }}>
-                      Complete End-to-End Workforce Ecosystem
+                      Enterprise eSSL Biometric Deployment
                     </span>
-                    <span className="badge badge-success">Active Deployment</span>
+                    <span className="badge badge-success">Live Verification</span>
                   </div>
                   <p style={{ fontSize: '0.8125rem', color: '#64748b', marginTop: '4px', margin: 0 }}>
-                    Synchronized hardware terminals, automated gate access, and real-time cloud management.
+                    High-accuracy optical fingerprint and RFID access terminal integrated with central cloud attendance.
                   </p>
                 </div>
               </div>
