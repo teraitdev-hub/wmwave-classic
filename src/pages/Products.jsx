@@ -13,6 +13,10 @@ const Products = () => {
   const [selectedCategory, setSelectedCategory] = useState(searchParams.get('cat') || 'all');
   const [activeModalProduct, setActiveModalProduct] = useState(null);
 
+  React.useEffect(() => {
+    setSelectedCategory(searchParams.get('cat') || 'all');
+  }, [searchParams]);
+
   // Group filter tabs with accurate real-time counts
   const categoryFilters = useMemo(() => [
     { id: 'all', label: 'All Products', count: allProducts.length },

@@ -498,7 +498,7 @@ export const products = {
                 "name": "i9C",
                 "category": "Finger-print",
                 "type": "High-Capacity Standalone Fingerprint Time Attendance Terminal",
-                "images": ['/assets/images/prod_x990_isolated.png'],
+                "images": ['/assets/images/prod_i9c_official.jpg'],
                 "highlights": [
                     "Fingerprint Capacity : 3000",
                     "Card Capacity : 3000 (Optional)",
@@ -1312,9 +1312,7 @@ export const products = {
                 "name": "AI Face Mars",
                 "category": "Face",
                 "type": "Visible Light Facial Recognition Time Attendance & Access Control",
-                "images": [
-                    "/assets/images/prod_aiface_magnum_lite_catalog.png"
-                ],
+                "images": ['/assets/images/prod_aiface_mars_official.png'],
                 "highlights": [
                     "Face Capacity : 5000",
                     "Palm Capacity : 3000",
@@ -1371,9 +1369,7 @@ export const products = {
                 "name": "MB160",
                 "category": "Face",
                 "type": "Multi-Biometric Face & Fingerprint Time Attendance System",
-                "images": [
-                    "/assets/images/prod_aiface_magnum_lite_tight.png"
-                ],
+                "images": ['/assets/images/prod_mb160_official.jpg'],
                 "highlights": [
                     "Face Capacity : 1200",
                     "Fingerprint Capacity : 1500",
@@ -1482,9 +1478,7 @@ export const products = {
                 "name": "uFace 302",
                 "category": "Face",
                 "type": "Multi-Biometric Time Attendance & Access Control System",
-                "images": [
-                    "/assets/images/prod_face_3.png"
-                ],
+                "images": ['/assets/images/prod_uface302_official.jpg'],
                 "highlights": [
                     "Face Capacity : 3000",
                     "Fingerprint Capacity : 4000",
@@ -1538,9 +1532,7 @@ export const products = {
                 "name": "SpeedFace V5L",
                 "category": "Face",
                 "type": "Visible Light Face & Palm Recognition Attendance Terminal",
-                "images": [
-                    "/assets/images/prod_face_indian.png"
-                ],
+                "images": ['/assets/images/prod_face_1.png'],
                 "highlights": [
                     "Face Capacity : 6000",
                     "Palm Capacity : 3000",
@@ -1939,7 +1931,7 @@ export const products = {
                 "name": "BG-Telescopic Barrier",
                 "category": "Boom Barrier",
                 "type": "Telescopic Boom Barrier for Low Ceiling & Basement Parking",
-                "images": ['/assets/images/prod_bgl100_3d.png'],
+                "images": ['/assets/images/prod_bg_telescopic_official.png'],
                 "highlights": [
                     "Telescopic Arm Design : 3m to 6m expandable boom arm",
                     "Ideal for basement parking, covered garages, and low overhead clearances",
@@ -1990,7 +1982,7 @@ export const products = {
                 "name": "BG Toll High-Speed Barrier",
                 "category": "Boom Barrier",
                 "type": "Ultra High-Speed Highway Toll & Logistics Boom Barrier",
-                "images": ['/assets/images/prod_bgcm300_indian.jpg'],
+                "images": ['/assets/images/prod_bgtoll_official.png'],
                 "highlights": [
                     "Opening Speed : 0.6s to 1.2s ultra high-speed opening",
                     "Boom Arm : 3m octagonal carbon fiber / aluminum profile with break-away flange",
@@ -2041,7 +2033,7 @@ export const products = {
                 "name": "Servo-600 Barrier",
                 "category": "Boom Barrier",
                 "type": "Intelligent Precision Servo Motor Automatic Boom Barrier",
-                "images": ['/assets/images/prod_bgl100_catalog.png'],
+                "images": ['/assets/images/prod_servo600_official.jpg'],
                 "highlights": [
                     "Motor Type : Advanced DC Servo Motor with digital encoder",
                     "Vibration-Free : Smooth sinusoidal deceleration with soft start and stop",
@@ -2370,7 +2362,7 @@ export const products = {
                 "name": "D3180S (18-Zone)",
                 "category": "Metal Detector",
                 "type": "18-Zone High Sensitivity Doorframe Metal Detector",
-                "images": ['/assets/images/prod_d4006_tight.png'],
+                "images": ['/assets/images/prod_d3180s_official.png'],
                 "highlights": [
                     "Detection Zones : 18 pinpoint detection zones (6 horizontal x 3 vertical grid)",
                     "Sensitivity : 256 adjustable sensitivity levels per zone",
@@ -2802,7 +2794,7 @@ export const products = {
                 "name": "FB-Pro 3000",
                 "category": "Flap Barriers",
                 "type": "High-Speed Retractable Wing Flap Barrier System",
-                "images": ['/assets/images/prod_fbe2000_tight.png'],
+                "images": ['/assets/images/prod_fbpro3000_official.png'],
                 "highlights": [
                     "Motor Drive : Brushless DC Servo drive for whisper-quiet and vibration-free operation",
                     "Opening Speed : 0.3-second rapid wing retraction",
@@ -3023,65 +3015,6 @@ export const products = {
                 },
                 pdf: null, 
                 desc: 'HG-BDC-600 is a high-performance 24V DC brushless sliding gate motor supporting gates up to 600kg with built-in controller, soft start/stop, and visual warning flashlight. Fully integrated with WMWave\'s cloud platform for secure, real-time access and remote gate control.' 
-            },
-            { 
-                id: 'bg-180-bdc', 
-                name: 'BG180-BDC', 
-                category: 'Boom Barrier',
-                type: 'Auto-barrier with DC brushless motor',
-                images: ['/assets/images/prod_bg180bdc_device.jpg'], 
-                highlights: [
-                    "Working voltage : 24VDC+-5%",
-                    "Environment humidity : 10%~90% (non-condensing)",
-                    "IP class : IP54 (Outdoor Electrophoresis & Powder Coated Cabinet)",
-                    "Rated Power : 120W 24VDC",
-                    "Power Supply : 220V+10% 50/60Hz, 110V+-10% 50/60Hz",
-                    "Working Temperature : -35°C-70°C",
-                    "Max. Boom Length with Operating Speed : 6m (6s), 4m (3s), 3m (1.5s)",
-                    "Operate speed at fastest 1.2S, speed adjustment available with soft start & stop"
-                ], 
-                specs: {
-                    "Working voltage": "24VDC+-5%",
-                    "Environment humidity": "10%~90% (non-condensing)",
-                    "IP class": "IP54",
-                    "Rated Power": "120W 24VDC",
-                    "Power Supply": "220V+10% 50/60Hz, 110V+-10% 50/60Hz",
-                    "Working Temperature": "-35°C-70°C",
-                    "Max. Boom Length with Operating Speed": "6m (6s), 4m (3s), 3m (1.5s)"
-                }, 
-                sections: {
-                    catalogStyle: 'bg180bdc',
-                    col1: [
-                        {
-                            title: "Technical data",
-                            items: [
-                                "Working voltage : 24VDC+-5%",
-                                "Environment humidity : 10%~90% (non-condensing)",
-                                "IP class : IP54",
-                                "Rated Power : 120W 24VDC",
-                                "Power Supply : 220V+10% 50/60Hz, 110V+-10% 50/60Hz",
-                                "Working Temperature : -35°C-70°C",
-                                "Max. Boom Length with Operating Speed : 6m (6s), 4m (3s), 3m (1.5s)"
-                            ]
-                        }
-                    ],
-                    col2: [
-                        {
-                            title: "Feature and specification",
-                            items: [
-                                "24VDC brushless motor drive, safe electrical, no risk of leakage.",
-                                "DC brushless mechanism, DC brushless motor, hull limit switch, operate stable, low sound, long lifetime.",
-                                "Operate speed at fastest 1.2S, the speed adjustment is available, soft start and soft stop function, high efficiency pass.",
-                                "With reverse, auto-close, auto intelligent check function are available.",
-                                "With connection for parking lot management system, loop detector, radar sensor, photocell. RS485 is optional.",
-                                "Cabinet is electrophoresis then powder coating, for outdoor using.",
-                                "Could operate by manual if power failure, auto operation by connecting backup battery is optional."
-                            ]
-                        }
-                    ]
-                },
-                pdf: null, 
-                desc: 'BG180-BDC is a heavy-duty automatic vehicle boom barrier powered by a 24V DC brushless motor with high-efficiency soft start/stop and fast 1.2s opening speed. Fully integrated with WMWave\'s cloud platform for secure, real-time vehicle access tracking.' 
             },
             { 
                 id: 'psa-26', 
