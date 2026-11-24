@@ -10,18 +10,18 @@ const Footer = () => {
           <div className="footer-grid">
             {/* Col 1: About */}
             <div className="footer-col">
-              <div style={{ marginBottom: '18px' }}>
+              <div style={{ marginBottom: '18px', display: 'flex', justifyContent: 'center' }}>
                 <img 
                   src="/assets/images/logo.png" 
                   alt="WMWave" 
-                  style={{ height: '42px', width: 'auto', objectFit: 'contain', display: 'block' }}
+                  style={{ height: '48px', width: 'auto', objectFit: 'contain', display: 'block', margin: '0 auto' }}
                   onError={(e) => {
                     e.target.onerror = null;
                     e.target.src = '/assets/images/logo_horizontal.png';
                   }}
                 />
               </div>
-              <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '0', lineHeight: '1.7' }}>
+              <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '0', lineHeight: '1.7', textAlign: 'center' }}>
                 WMWave is a premier provider of enterprise biometric attendance systems, facial recognition terminals, access control, and automated barrier solutions. Engineered for seamless cloud synchronization and corporate security.
               </p>
             </div>
