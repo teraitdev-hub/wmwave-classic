@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -77,14 +77,7 @@ const HomeBannerSlider = () => {
     }
   ];
 
-  // Calm automatic rotation every 5 seconds (zero bounce/jump animations)
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, [slides.length]);
-
+  // Completely static - ONLY changes when user manually clicks Next / Prev / Dot
   const handlePrev = (e) => {
     e.stopPropagation();
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
@@ -120,7 +113,7 @@ const HomeBannerSlider = () => {
           padding: '24px 0 36px 0'
         }}
       >
-        {/* Slide Content Display */}
+        {/* Slide Content Display (Static - Only changes on manual user click) */}
         {active.type === 'logo' ? (
           active.content
         ) : (
@@ -169,7 +162,7 @@ const HomeBannerSlider = () => {
             justifyContent: 'center',
             color: '#ffffff',
             cursor: 'pointer',
-            transition: 'background-color 0.2s ease',
+            transition: 'background-color 0.15s ease',
             zIndex: 10
           }}
           onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(2, 132, 199, 0.85)'}
@@ -197,7 +190,7 @@ const HomeBannerSlider = () => {
             justifyContent: 'center',
             color: '#ffffff',
             cursor: 'pointer',
-            transition: 'background-color 0.2s ease',
+            transition: 'background-color 0.15s ease',
             zIndex: 10
           }}
           onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(2, 132, 199, 0.85)'}
@@ -232,7 +225,7 @@ const HomeBannerSlider = () => {
                 border: 'none',
                 cursor: 'pointer',
                 padding: 0,
-                transition: 'all 0.2s ease'
+                transition: 'all 0.15s ease'
               }}
             />
           ))}

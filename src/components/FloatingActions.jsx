@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { Phone } from 'lucide-react';
 
-export const WhatsAppIcon = ({ size = 26, color = '#ffffff' }) => (
+export const WhatsAppIcon = ({ size = 28, color = '#ffffff' }) => (
   <svg 
     width={size} 
     height={size} 
@@ -16,129 +15,66 @@ export const WhatsAppIcon = ({ size = 26, color = '#ffffff' }) => (
 );
 
 const FloatingActions = () => {
-  const [hoverCall, setHoverCall] = useState(false);
   const [hoverWa, setHoverWa] = useState(false);
-
-  const phoneNumber = '+919483920190';
-  const displayPhone = '+91 9483920190';
   const whatsappUrl = `https://wa.me/919483920190?text=${encodeURIComponent('Hi WMWave, I am interested in your biometric attendance and access control solutions.')}`;
 
   return (
-    <>
-      {/* 🔵 Middle of Right Edge - Phone Call Button */}
-      <div 
-        style={{
-          position: 'fixed',
-          right: '18px',
-          top: '50%',
-          transform: 'translateY(-50%)',
-          zIndex: 9999,
-          display: 'flex',
-          alignItems: 'center'
-        }}
-      >
-        {hoverCall && (
-          <div 
-            style={{
-              position: 'absolute',
-              right: '64px',
-              backgroundColor: '#071A35',
-              color: '#ffffff',
-              padding: '7px 14px',
-              borderRadius: '6px',
-              fontSize: '0.8125rem',
-              fontWeight: '600',
-              whiteSpace: 'nowrap',
-              boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
-              border: '1px solid #1e3a5f',
-              pointerEvents: 'none'
-            }}
-          >
-            Call: {displayPhone}
-          </div>
-        )}
-        <a 
-          href={`tel:${phoneNumber}`}
-          aria-label={`Call WMWave at ${displayPhone}`}
-          onMouseEnter={() => setHoverCall(true)}
-          onMouseLeave={() => setHoverCall(false)}
+    /* 🟢 Bottom-Right Corner - WhatsApp Only */
+    <div 
+      style={{
+        position: 'fixed',
+        right: '20px',
+        bottom: '22px',
+        zIndex: 9999,
+        display: 'flex',
+        alignItems: 'center'
+      }}
+    >
+      {hoverWa && (
+        <div 
           style={{
-            width: '52px',
-            height: '52px',
-            borderRadius: '50%',
-            backgroundColor: '#0284c7',
+            position: 'absolute',
+            right: '66px',
+            backgroundColor: '#071A35',
             color: '#ffffff',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            boxShadow: '0 4px 16px rgba(2, 132, 199, 0.45)',
-            textDecoration: 'none',
-            border: '2px solid #ffffff',
-            cursor: 'pointer',
-            transition: 'background-color 0.2s ease, transform 0.2s ease'
+            padding: '7px 14px',
+            borderRadius: '6px',
+            fontSize: '0.8125rem',
+            fontWeight: '600',
+            whiteSpace: 'nowrap',
+            boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+            border: '1px solid #1e3a5f',
+            pointerEvents: 'none'
           }}
         >
-          <Phone size={24} color="#ffffff" />
-        </a>
-      </div>
-
-      {/* 🟢 Bottom-Right Corner - WhatsApp Button */}
-      <div 
+          Chat on WhatsApp
+        </div>
+      )}
+      <a 
+        href={whatsappUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Chat with WMWave on WhatsApp"
+        onMouseEnter={() => setHoverWa(true)}
+        onMouseLeave={() => setHoverWa(false)}
         style={{
-          position: 'fixed',
-          right: '20px',
-          bottom: '22px',
-          zIndex: 9999,
+          width: '56px',
+          height: '56px',
+          borderRadius: '50%',
+          backgroundColor: '#25D366',
           display: 'flex',
-          alignItems: 'center'
+          alignItems: 'center',
+          justifyContent: 'center',
+          boxShadow: '0 6px 20px rgba(37, 211, 102, 0.45)',
+          textDecoration: 'none',
+          border: '2px solid #ffffff',
+          cursor: 'pointer',
+          transition: 'transform 0.15s ease, box-shadow 0.15s ease'
         }}
       >
-        {hoverWa && (
-          <div 
-            style={{
-              position: 'absolute',
-              right: '66px',
-              backgroundColor: '#071A35',
-              color: '#ffffff',
-              padding: '7px 14px',
-              borderRadius: '6px',
-              fontSize: '0.8125rem',
-              fontWeight: '600',
-              whiteSpace: 'nowrap',
-              boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
-              border: '1px solid #1e3a5f',
-              pointerEvents: 'none'
-            }}
-          >
-            Chat on WhatsApp
-          </div>
-        )}
-        <a 
-          href={whatsappUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Chat with WMWave on WhatsApp"
-          onMouseEnter={() => setHoverWa(true)}
-          onMouseLeave={() => setHoverWa(false)}
-          style={{
-            width: '56px',
-            height: '56px',
-            borderRadius: '50%',
-            backgroundColor: '#25D366',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            boxShadow: '0 6px 20px rgba(37, 211, 102, 0.45)',
-            textDecoration: 'none',
-            border: '2px solid #ffffff',
-            cursor: 'pointer',
-            transition: 'background-color 0.2s ease, transform 0.2s ease'
-          }}
-        >
-          <WhatsAppIcon size={30} color="#ffffff" />
-        </a>
-      </div>
-    </>
+        <WhatsAppIcon size={30} color="#ffffff" />
+      </a>
+    </div>
   );
 };
 

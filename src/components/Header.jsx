@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone } from 'lucide-react';
-import { WhatsAppIcon } from './FloatingActions';
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -21,8 +20,6 @@ const Header = () => {
     if (path === '/') return location.pathname === '/';
     return location.pathname.startsWith(path);
   };
-
-  const whatsappUrl = `https://wa.me/919483920190?text=${encodeURIComponent('Hi WMWave, I would like to inquire about your biometric & access control solutions.')}`;
 
   return (
     <header className="site-header">
@@ -50,8 +47,8 @@ const Header = () => {
               {link.name}
             </Link>
           ))}
-          {/* Mobile contact shortcuts */}
-          <div className="mobile-only" style={{ display: 'none', padding: '16px', borderTop: '1px solid #e2e8f0', marginTop: '12px', flexDirection: 'column', gap: '10px' }}>
+          {/* Mobile contact shortcut */}
+          <div className="mobile-only" style={{ display: 'none', padding: '16px', borderTop: '1px solid #e2e8f0', marginTop: '12px' }}>
             <a 
               href="tel:+919483920190"
               style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#0f2b48', fontWeight: '600', textDecoration: 'none' }}
@@ -59,61 +56,30 @@ const Header = () => {
               <Phone size={16} color="#0284c7" />
               <span>+91 9483920190</span>
             </a>
-            <a 
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#25D366', fontWeight: '600', textDecoration: 'none' }}
-            >
-              <WhatsAppIcon size={18} color="#25D366" />
-              <span>Chat on WhatsApp</span>
-            </a>
           </div>
         </nav>
 
         <div className="header-cta" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-          {/* Header Phone Call Link */}
+          {/* Only Call Button in Header */}
           <a 
             href="tel:+919483920190"
             className="btn btn-outline btn-sm header-phone-btn"
             style={{ 
               display: 'inline-flex', 
               alignItems: 'center', 
-              gap: '6px', 
-              padding: '6px 12px',
-              fontSize: '0.8125rem',
+              gap: '7px', 
+              padding: '7px 14px',
+              fontSize: '0.875rem',
               fontWeight: '600',
-              textDecoration: 'none'
-            }}
-            title="Call WMWave Enquiries"
-          >
-            <Phone size={14} color="#0284c7" />
-            <span>+91 9483920190</span>
-          </a>
-
-          {/* Header WhatsApp Link */}
-          <a 
-            href={whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn-sm header-wa-btn"
-            style={{ 
-              display: 'inline-flex', 
-              alignItems: 'center', 
-              gap: '6px', 
-              padding: '6px 14px',
-              backgroundColor: '#25D366',
-              color: '#ffffff',
-              fontSize: '0.8125rem',
-              fontWeight: '600',
-              border: 'none',
+              textDecoration: 'none',
               borderRadius: '6px',
-              textDecoration: 'none'
+              borderColor: '#0284c7',
+              color: '#0284c7'
             }}
-            title="Chat with Sales on WhatsApp"
+            title="Call WMWave Sales & Enquiries"
           >
-            <WhatsAppIcon size={16} color="#ffffff" />
-            <span>WhatsApp</span>
+            <Phone size={15} color="#0284c7" />
+            <span>+91 9483920190</span>
           </a>
 
           <button 

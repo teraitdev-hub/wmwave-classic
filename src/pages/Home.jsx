@@ -100,7 +100,7 @@ const Home = () => {
 
               <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap', marginBottom: '36px' }}>
                 <Link to="/products" className="btn btn-primary btn-lg">
-                  <span>Browse All 46 Products</span>
+                  <span>Browse All Products</span>
                   <ArrowRight size={18} />
                 </Link>
                 <Link to="/contact" className="btn btn-outline btn-lg">
@@ -111,7 +111,7 @@ const Home = () => {
               {/* Key Trust Stats */}
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px', paddingTop: '24px', borderTop: '1px solid #e2e8f0' }}>
                 <div>
-                  <div style={{ fontSize: '1.5rem', fontWeight: '800', color: '#0f2b48' }}>46+</div>
+                  <div style={{ fontSize: '1.5rem', fontWeight: '800', color: '#0f2b48' }}>45+</div>
                   <div style={{ fontSize: '0.8125rem', color: '#64748b' }}>Certified Hardware Models</div>
                 </div>
                 <div>
