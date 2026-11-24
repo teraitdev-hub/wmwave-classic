@@ -3145,9 +3145,16 @@ export const products = {
 
 export const getAllProducts = () => {
     let all = [];
-    Object.values(products).forEach(category => {
-        Object.values(category).forEach(subcategoryList => {
-            all = [...all, ...subcategoryList];
+    Object.entries(products).forEach(([categoryId, subcategories]) => {
+        Object.entries(subcategories).forEach(([subcategoryId, subcategoryList]) => {
+            subcategoryList.forEach((item, index) => {
+                all.push({
+                    ...item,
+                    categoryId,
+                    subcategoryId,
+                    uniqueKey: `${categoryId}_${subcategoryId}_${item.id}_${index}`
+                });
+            });
         });
     });
     return all;

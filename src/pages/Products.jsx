@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { Search, Filter, SlidersHorizontal, CheckCircle2, RefreshCw } from 'lucide-react';
-import { getAllProducts, productCategories } from '../data/products';
+import { Search, RefreshCw } from 'lucide-react';
+import { getAllProducts } from '../data/products';
 import ProductCard from '../components/ProductCard';
 import ProductModal from '../components/ProductModal';
 
@@ -13,41 +13,27 @@ const Products = () => {
   const [selectedCategory, setSelectedCategory] = useState(searchParams.get('cat') || 'all');
   const [activeModalProduct, setActiveModalProduct] = useState(null);
 
-  // Group filter tabs
-  const categoryFilters = [
+  // Group filter tabs with accurate real-time counts
+  const categoryFilters = useMemo(() => [
     { id: 'all', label: 'All Products', count: allProducts.length },
-    { id: 'fingerprint', label: 'Fingerprint Terminals' },
-    { id: 'face-recognition', label: 'Face Recognition' },
-    { id: 'qr-reader', label: 'QR Readers' },
-    { id: 'boom-barrier', label: 'Boom Barriers' },
-    { id: 'metal-detector', label: 'Metal Detectors' },
-    { id: 'flap-barrier', label: 'Flap Barriers & Turnstiles' },
-    { id: 'gates-automation', label: 'Gates & Automation' }
-  ];
+    { id: 'fingerprint', label: 'Fingerprint Terminals', count: allProducts.filter(p => p.subcategoryId === 'fingerprint').length },
+    { id: 'face-recognition', label: 'Face Recognition', count: allProducts.filter(p => p.subcategoryId === 'face-recognition').length },
+    { id: 'qr-reader', label: 'QR Readers', count: allProducts.filter(p => p.subcategoryId === 'qr-reader').length },
+    { id: 'boom-barrier', label: 'Boom Barriers', count: allProducts.filter(p => p.subcategoryId === 'boom-barrier').length },
+    { id: 'metal-detector', label: 'Metal Detectors', count: allProducts.filter(p => p.subcategoryId === 'metal-detector').length },
+    { id: 'flap-barrier', label: 'Flap Barriers & Turnstiles', count: allProducts.filter(p => p.subcategoryId === 'flap-barrier').length },
+    { id: 'gates-automation', label: 'Gates & Automation', count: allProducts.filter(p => p.categoryId === 'gates-automation').length }
+  ], [allProducts]);
 
   // Filtering logic
   const filteredProducts = useMemo(() => {
     return allProducts.filter(product => {
-      // Category filter
+      // Category filter matching exact database category and subcategory
       if (selectedCategory !== 'all') {
-        const catLower = (product.category || '').toLowerCase();
-        const idLower = (product.id || '').toLowerCase();
-        const typeLower = (product.type || '').toLowerCase();
-
-        if (selectedCategory === 'fingerprint') {
-          if (!catLower.includes('finger') && !typeLower.includes('fingerprint') && !idLower.startsWith('sf-') && !idLower.startsWith('f-') && !idLower.startsWith('k-') && !idLower.startsWith('x-') && !idLower.startsWith('i-') && !idLower.startsWith('p-')) return false;
-        } else if (selectedCategory === 'face-recognition') {
-          if (!catLower.includes('face') && !typeLower.includes('face') && !idLower.includes('face') && !idLower.includes('vesta') && !idLower.includes('magnum')) return false;
-        } else if (selectedCategory === 'qr-reader') {
-          if (!catLower.includes('qr') && !typeLower.includes('qr') && !idLower.includes('qr')) return false;
-        } else if (selectedCategory === 'boom-barrier') {
-          if (!catLower.includes('boom') && !catLower.includes('barrier') && !idLower.startsWith('bg') && !idLower.startsWith('psa-02') && !typeLower.includes('barrier')) return false;
-        } else if (selectedCategory === 'metal-detector') {
-          if (!catLower.includes('metal') && !idLower.startsWith('d4') && !idLower.startsWith('d1') && !idLower.startsWith('d3') && !idLower.startsWith('md-') && !idLower.startsWith('ess-') && !idLower.startsWith('hm-')) return false;
-        } else if (selectedCategory === 'flap-barrier') {
-          if (!catLower.includes('flap') && !idLower.startsWith('fb-') && !idLower.startsWith('tsg-') && !idLower.startsWith('sb-') && !idLower.startsWith('hg-') && !typeLower.includes('barrier') && !typeLower.includes('turnstile')) return false;
-        } else if (selectedCategory === 'gates-automation') {
-          if (!idLower.startsWith('hg-') && !idLower.startsWith('bg-') && !idLower.startsWith('psa-26')) return false;
+        if (selectedCategory === 'gates-automation') {
+          if (product.categoryId !== 'gates-automation') return false;
+        } else {
+          if (product.subcategoryId !== selectedCategory) return false;
         }
       }
 
@@ -90,7 +76,7 @@ const Products = () => {
       <section style={{ backgroundColor: '#f8fafc', padding: '50px 0 36px 0', borderBottom: '1px solid #e2e8f0' }}>
         <div className="container">
           <span className="section-eyebrow">Hardware Catalog</span>
-          <h1 style={{ fontSize: '2.5rem', color: '#0f2b48', marginTop: '8px', marginBottom: '12px' }}>
+          <h1 style={{ fontSize: '2.5rem', color: '#071A35', marginTop: '8px', marginBottom: '12px' }}>
             Enterprise Products & Hardware Devices
           </h1>
           <p style={{ fontSize: '1.1rem', color: '#475569', maxWidth: '850px', lineHeight: '1.6' }}>
@@ -147,17 +133,31 @@ const Products = () => {
                   style={{
                     padding: '8px 16px',
                     borderRadius: '6px',
-                    border: isSelected ? '1px solid #0284c7' : '1px solid #e2e8f0',
-                    backgroundColor: isSelected ? '#0f2b48' : '#ffffff',
+                    border: isSelected ? '1px solid #2D7FF9' : '1px solid #e2e8f0',
+                    backgroundColor: isSelected ? '#071A35' : '#ffffff',
                     color: isSelected ? '#ffffff' : '#334155',
                     fontWeight: isSelected ? '700' : '500',
                     fontSize: '0.875rem',
                     cursor: 'pointer',
                     whiteSpace: 'nowrap',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '6px',
                     transition: 'background-color 0.15s ease'
                   }}
                 >
-                  {tab.label}
+                  <span>{tab.label}</span>
+                  <span 
+                    style={{ 
+                      fontSize: '0.75rem', 
+                      padding: '2px 6px', 
+                      borderRadius: '10px', 
+                      backgroundColor: isSelected ? 'rgba(255, 255, 255, 0.2)' : '#f1f5f9',
+                      color: isSelected ? '#ffffff' : '#64748b'
+                    }}
+                  >
+                    {tab.count}
+                  </span>
                 </button>
               );
             })}
@@ -179,7 +179,7 @@ const Products = () => {
                   gap: '6px',
                   background: 'none',
                   border: 'none',
-                  color: '#0284c7',
+                  color: '#2D7FF9',
                   fontSize: '0.875rem',
                   fontWeight: '600',
                   cursor: 'pointer'
@@ -195,7 +195,7 @@ const Products = () => {
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '24px' }}>
               {filteredProducts.map(product => (
                 <ProductCard 
-                  key={product.id} 
+                  key={product.uniqueKey || `${product.id}-${product.subcategoryId}`} 
                   product={product} 
                   onSelect={setActiveModalProduct} 
                 />
@@ -203,7 +203,7 @@ const Products = () => {
             </div>
           ) : (
             <div className="card" style={{ textAlign: 'center', padding: '60px 20px' }}>
-              <h3 style={{ fontSize: '1.25rem', color: '#0f2b48', marginBottom: '8px' }}>No products match your criteria</h3>
+              <h3 style={{ fontSize: '1.25rem', color: '#071A35', marginBottom: '8px' }}>No products match your criteria</h3>
               <p style={{ color: '#64748b', fontSize: '0.95rem', marginBottom: '20px' }}>
                 Try adjusting your search terms or selecting another category filter.
               </p>
