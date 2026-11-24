@@ -15,25 +15,24 @@ const HomeBannerSlider = () => {
             src="/assets/images/logo.png" 
             alt="WMWave" 
             style={{ 
-              maxWidth: '680px', 
+              maxWidth: '520px', 
               width: '100%', 
               height: 'auto', 
               margin: '0 auto 20px auto', 
-              display: 'block',
-              filter: 'drop-shadow(0 4px 12px rgba(45, 127, 249, 0.25))'
+              display: 'block'
             }} 
           />
-          <h2 style={{ color: '#f8fafc', fontSize: '1.5rem', fontWeight: '600', marginBottom: '12px', letterSpacing: '-0.01em' }}>
+          <h2 style={{ color: '#0f2b48', fontSize: '1.75rem', fontWeight: '700', marginBottom: '14px', letterSpacing: '-0.01em' }}>
             Enterprise Workforce Management & Physical Access Control
           </h2>
-          <p style={{ color: '#94a3b8', fontSize: '1rem', maxWidth: '640px', margin: '0 auto 24px auto', lineHeight: '1.6' }}>
+          <p style={{ color: '#475569', fontSize: '1.0625rem', maxWidth: '640px', margin: '0 auto 24px auto', lineHeight: '1.6' }}>
             Certified eSSL biometric hardware, AI visible light facial recognition, automatic boom barriers, and cloud sync infrastructure.
           </p>
-          <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link to="/products" className="btn btn-primary btn-sm">
+          <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <Link to="/products" className="btn btn-primary btn-md">
               Explore Products
             </Link>
-            <Link to="/contact" className="btn btn-outline btn-sm" style={{ color: '#ffffff', borderColor: '#475569' }}>
+            <Link to="/contact" className="btn btn-outline btn-md" style={{ color: '#0f2b48', borderColor: '#cbd5e1' }}>
               Contact Sales
             </Link>
           </div>
@@ -94,11 +93,11 @@ const HomeBannerSlider = () => {
     <div 
       style={{
         width: '100%',
-        backgroundColor: '#071A35',
-        background: 'linear-gradient(180deg, #071A35 0%, #0c2342 100%)',
+        backgroundColor: '#ffffff',
+        background: '#ffffff',
         position: 'relative',
         overflow: 'hidden',
-        borderBottom: '1px solid #1e3a5f',
+        borderBottom: '1px solid #e2e8f0',
         userSelect: 'none'
       }}
     >
@@ -106,14 +105,14 @@ const HomeBannerSlider = () => {
         className="container"
         style={{
           position: 'relative',
-          minHeight: '440px',
+          minHeight: '420px',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          padding: '24px 0 36px 0'
+          padding: '28px 0 40px 0'
         }}
       >
-        {/* Slide Content Display (Static - Only changes on manual user click) */}
+        {/* Slide Content Display (Clean White Theme, Zero Stretching) */}
         {active.type === 'logo' ? (
           active.content
         ) : (
@@ -131,10 +130,10 @@ const HomeBannerSlider = () => {
               src={active.image} 
               alt={active.alt} 
               style={{
-                maxWidth: '1100px',
+                maxWidth: '1200px',
                 width: '100%',
                 height: 'auto',
-                maxHeight: '420px',
+                maxHeight: '440px',
                 objectFit: 'contain',
                 display: 'block',
                 borderRadius: '8px'
@@ -143,7 +142,7 @@ const HomeBannerSlider = () => {
           </Link>
         )}
 
-        {/* Previous Arrow Button */}
+        {/* Previous Arrow Button (Styled for White Background) */}
         <button
           onClick={handlePrev}
           aria-label="Previous Banner"
@@ -152,26 +151,33 @@ const HomeBannerSlider = () => {
             left: '12px',
             top: '50%',
             transform: 'translateY(-50%)',
-            backgroundColor: 'rgba(7, 26, 53, 0.75)',
-            border: '1px solid rgba(255, 255, 255, 0.2)',
+            backgroundColor: '#ffffff',
+            border: '1px solid #cbd5e1',
             borderRadius: '50%',
-            width: '40px',
-            height: '40px',
+            width: '42px',
+            height: '42px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            color: '#ffffff',
+            color: '#0f2b48',
             cursor: 'pointer',
-            transition: 'background-color 0.15s ease',
+            boxShadow: '0 2px 8px rgba(0, 0, 0, 0.08)',
+            transition: 'background-color 0.15s ease, border-color 0.15s ease',
             zIndex: 10
           }}
-          onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(2, 132, 199, 0.85)'}
-          onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'rgba(7, 26, 53, 0.75)'}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.backgroundColor = '#f1f5f9';
+            e.currentTarget.style.borderColor = '#94a3b8';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.backgroundColor = '#ffffff';
+            e.currentTarget.style.borderColor = '#cbd5e1';
+          }}
         >
           <ChevronLeft size={22} />
         </button>
 
-        {/* Next Arrow Button */}
+        {/* Next Arrow Button (Styled for White Background) */}
         <button
           onClick={handleNext}
           aria-label="Next Banner"
@@ -180,26 +186,33 @@ const HomeBannerSlider = () => {
             right: '12px',
             top: '50%',
             transform: 'translateY(-50%)',
-            backgroundColor: 'rgba(7, 26, 53, 0.75)',
-            border: '1px solid rgba(255, 255, 255, 0.2)',
+            backgroundColor: '#ffffff',
+            border: '1px solid #cbd5e1',
             borderRadius: '50%',
-            width: '40px',
-            height: '40px',
+            width: '42px',
+            height: '42px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            color: '#ffffff',
+            color: '#0f2b48',
             cursor: 'pointer',
-            transition: 'background-color 0.15s ease',
+            boxShadow: '0 2px 8px rgba(0, 0, 0, 0.08)',
+            transition: 'background-color 0.15s ease, border-color 0.15s ease',
             zIndex: 10
           }}
-          onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(2, 132, 199, 0.85)'}
-          onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'rgba(7, 26, 53, 0.75)'}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.backgroundColor = '#f1f5f9';
+            e.currentTarget.style.borderColor = '#94a3b8';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.backgroundColor = '#ffffff';
+            e.currentTarget.style.borderColor = '#cbd5e1';
+          }}
         >
           <ChevronRight size={22} />
         </button>
 
-        {/* Dot Indicators */}
+        {/* Dot Indicators (Clean Blue on White) */}
         <div 
           style={{
             position: 'absolute',
@@ -218,10 +231,10 @@ const HomeBannerSlider = () => {
               onClick={() => setCurrentSlide(index)}
               aria-label={`Go to slide ${index + 1}`}
               style={{
-                width: index === currentSlide ? '24px' : '9px',
-                height: '9px',
-                borderRadius: '5px',
-                backgroundColor: index === currentSlide ? '#0284c7' : 'rgba(255, 255, 255, 0.35)',
+                width: index === currentSlide ? '26px' : '9px',
+                height: '8px',
+                borderRadius: '4px',
+                backgroundColor: index === currentSlide ? '#0284c7' : '#cbd5e1',
                 border: 'none',
                 cursor: 'pointer',
                 padding: 0,
